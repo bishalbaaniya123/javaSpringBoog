@@ -1,14 +1,19 @@
 package com.bishal.demo.dao;
 
 import com.bishal.demo.model.Student;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class FakeStudentDaoImpl implements StudentDao {
     private final Map<UUID, Student> database;
 
     public FakeStudentDaoImpl() {
         database = new HashMap<>();
+        UUID studentId = UUID.randomUUID();
+        database.put(studentId, new Student(studentId, 14,
+                "Bishal", "Baaniya", "Computer Science"));
     }
 
     @Override
